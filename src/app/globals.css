@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --ink: #15181c;
+  --ink-soft: #232a2e;
+  --paper: #f3f6f0;
+  --paper-raised: #ffffff;
+  --amber: #4caf50;
+  --amber-bright: #8bc63f;
+  --amber-ink: #1f6b3d;
+  --teal: #1697a6;
+  --line: #e3e8de;
+  --muted: #667085;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #0e1310;
+  --foreground: #edf2ea;
+  --paper-raised: #171d19;
+  --amber: #57c25f;
+  --amber-bright: #a4dd57;
+  --amber-ink: #8de39f;
+  --teal: #4fc4d4;
+  --line: #29332c;
+  --muted: #98a399;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-amber: var(--amber);
+  --color-amber-bright: var(--amber-bright);
+  --color-teal: var(--teal);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Soft divider — a thin green rule instead of the old hazard tape */
+.hazard-rule {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--amber) 0%, var(--amber-bright) 100%);
+}
+
+/* Clean rounded card, flat white on the light paper background */
+.ticket {
+  position: relative;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(20, 30, 20, 0.04);
+}
+
+.ticket-perf {
+  border-top: 1px solid var(--line);
+}
+
+/* Rounded pill badge used for icon tiles (stat cards, category tiles) */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 1rem;
+  background: var(--amber);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
